@@ -13,7 +13,7 @@ const createParkingLot = ({
   rateMedium = RATE_MEDIUM,
   rateLarge = RATE_LARGE,
   rateOvernight = RATE_OVERNIGHT,
-  spots = createParkingSpots(12, 3),
+  spots = createParkingSpots(3, 9),
 }: Partial<ParkingLot>): ParkingLot => {
   return {
     rateFlat: rateFlat,
