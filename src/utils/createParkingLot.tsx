@@ -5,6 +5,7 @@ import ParkingLot, {
   RATE_OVERNIGHT,
   RATE_SMALL,
 } from "../types/ParkingLot";
+import createParkingSpots from "./createParkingSpot";
 
 const createParkingLot = ({
   rateFlat = RATE_FLAT,
@@ -12,7 +13,7 @@ const createParkingLot = ({
   rateMedium = RATE_MEDIUM,
   rateLarge = RATE_LARGE,
   rateOvernight = RATE_OVERNIGHT,
-  spots = [],
+  spots = createParkingSpots(12, 3),
 }: Partial<ParkingLot>): ParkingLot => {
   return {
     rateFlat: rateFlat,

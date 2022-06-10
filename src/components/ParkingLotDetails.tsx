@@ -5,6 +5,7 @@ const ParkingLotDetails: React.FC<ParkingLot> = (parkingLot) => (
     <code
       style={{
         whiteSpace: "pre-wrap",
+        fontSize: "14px",
       }}
     >
       {JSON.stringify({ parkingLot }, null, 2)}
