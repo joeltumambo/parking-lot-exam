@@ -7,4 +7,5 @@
 .form-row {
   display: flex;
   grid-gap: 8px;
+  place-items: center;
 }
