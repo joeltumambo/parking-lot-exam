@@ -1,0 +1,10 @@
+.form {
+  display: grid;
+  grid-gap: 8px;
+  place-content: start;
+}
+
+.form-row {
+  display: flex;
+  grid-gap: 8px;
+}

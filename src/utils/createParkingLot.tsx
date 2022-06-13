@@ -5,7 +5,7 @@ import ParkingLot, {
   RATE_OVERNIGHT,
   RATE_SMALL,
 } from "../types/ParkingLot";
-import createParkingSpots from "./createParkingSpot";
+import createParkingSpots from "./createParkingSpots";
 
 const createParkingLot = ({
   rateFlat = RATE_FLAT,

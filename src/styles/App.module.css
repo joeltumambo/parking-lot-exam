@@ -1,0 +1,11 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.dashboard > span {
+  display: flex;
+  padding: 16px;
+  max-height: 100vh;
+  overflow: auto;
+}
