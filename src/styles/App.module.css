@@ -1,6 +1,6 @@
 .dashboard {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 1fr auto;
 }
 
 .dashboard > span {
@@ -8,4 +8,8 @@
   padding: 16px;
   max-height: 100vh;
   overflow: auto;
+}
+
+.dashboard > span:not(:last-child) {
+  border-right: solid 1px white;
 }
