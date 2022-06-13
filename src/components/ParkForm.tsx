@@ -28,7 +28,7 @@ interface ParkFormProps {
 const ParkForm: React.FC<ParkFormProps> = ({ entriesCount, onPark }) => {
   const [values, setValues] = useState<ParkInputData>({
     entry: 0,
-    size: Size.Small,
+    size: Size.S,
     time: new Date(),
   });
 
@@ -72,9 +72,9 @@ const ParkForm: React.FC<ParkFormProps> = ({ entriesCount, onPark }) => {
       <span className={styles["form-row"]}>
         <label>Size</label>
         <select name="size" value={values.size} onChange={handleSizeChange}>
-          <option>{Size.Small}</option>
-          <option>{Size.Medium}</option>
-          <option>{Size.Large}</option>
+          <option>{"Small"}</option>
+          <option>{"Medium"}</option>
+          <option>{"Large"}</option>
         </select>
       </span>
       <span className={styles["form-row"]}>

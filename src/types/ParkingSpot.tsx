@@ -1,11 +1,11 @@
 export enum Size {
-  Small = "Small",
-  Medium = "Medium",
-  Large = "Large",
+  S = "Small",
+  M = "Medium",
+  L = "Large",
 }
 
 interface ParkingSpot {
-  id: number;
+  id: string;
   size: Size;
   distances: number[];
 }
