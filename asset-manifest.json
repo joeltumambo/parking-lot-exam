@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/parking-lot-exam/static/css/main.e4556fa4.css",
+    "main.css": "/parking-lot-exam/static/css/main.7d122eab.css",
     "main.js": "/parking-lot-exam/static/js/main.ee7828a2.js",
     "static/js/787.23244398.chunk.js": "/parking-lot-exam/static/js/787.23244398.chunk.js",
     "index.html": "/parking-lot-exam/index.html",
-    "main.e4556fa4.css.map": "/parking-lot-exam/static/css/main.e4556fa4.css.map",
+    "main.7d122eab.css.map": "/parking-lot-exam/static/css/main.7d122eab.css.map",
     "main.ee7828a2.js.map": "/parking-lot-exam/static/js/main.ee7828a2.js.map",
     "787.23244398.chunk.js.map": "/parking-lot-exam/static/js/787.23244398.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e4556fa4.css",
+    "static/css/main.7d122eab.css",
     "static/js/main.ee7828a2.js"
   ]
 }
