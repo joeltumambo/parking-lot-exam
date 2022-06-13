@@ -1,3 +1,5 @@
+import { flow } from "lodash";
+import ParkingRecord from "../types/ParkingRecord";
 import ParkingSpot, { Size } from "../types/ParkingSpot";
 
 type SizeDictionary = {
@@ -13,13 +15,41 @@ const sizeFilters: SizeDictionary = {
   [Size.L]: [Size.L],
 };
 
+const isVehicleAllowed = (vehicleSize: Size, spotSize: Size): boolean =>
+  sizeFilters[vehicleSize].includes(spotSize);
+
+const isSpotAvailable = (spotId: string, records: ParkingRecord[]): boolean =>
+  records.filter(
+    (record) => record.spotId === spotId && record.timeOut === undefined
+  ).length === 0;
+
+const getAvailableSpots = (
+  spots: ParkingSpot[],
+  vehicleSize: Size,
+  records: ParkingRecord[]
+): ParkingSpot[] =>
+  spots.filter(
+    (spot) =>
+      isVehicleAllowed(vehicleSize, spot.size) &&
+      isSpotAvailable(spot.id, records)
+  );
+
+const sortByNearest = (
+  spots: ParkingSpot[],
+  entryIndex: number
+): ParkingSpot[] =>
+  spots.sort((a, b) => a.distances[entryIndex] - b.distances[entryIndex]);
+
 const findParkingSpot = (
-  size: Size,
-  entry: number,
-  spots: ParkingSpot[]
+  vehicleSize: Size,
+  entryIndex: number,
+  spots: ParkingSpot[],
+  records: ParkingRecord[]
 ): ParkingSpot =>
-  spots
-    .filter((spot) => sizeFilters[size].includes(spot.size))
-    .sort((a, b) => a.distances[entry] - b.distances[entry])[0];
+  flow(
+    () => getAvailableSpots(spots, vehicleSize, records),
+    (spots) => sortByNearest(spots, entryIndex),
+    (spots) => spots[0]
+  )();
 
 export default findParkingSpot;
