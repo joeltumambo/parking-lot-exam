@@ -5,6 +5,7 @@ export enum Size {
 }
 
 interface ParkingSpot {
+  id: number;
   size: Size;
   distances: number[];
 }
