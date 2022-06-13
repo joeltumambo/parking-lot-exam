@@ -20,7 +20,7 @@ const isVehicleAllowed = (vehicleSize: Size, spotSize: Size): boolean =>
 
 const isSpotAvailable = (spotId: string, records: ParkingRecord[]): boolean =>
   records.filter(
-    (record) => record.spotId === spotId && record.timeOut === undefined
+    (record) => record.spotId === spotId && record.timeEnd === undefined
   ).length === 0;
 
 const getAvailableSpots = (

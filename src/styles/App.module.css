@@ -7,9 +7,15 @@
   display: flex;
   padding: 16px;
   max-height: 100vh;
+  min-height: 100vh;
   overflow: auto;
 }
 
 .dashboard > span:not(:last-child) {
   border-right: solid 1px white;
+}
+
+.forms {
+  flex-direction: column;
+  grid-gap: 32px;
 }

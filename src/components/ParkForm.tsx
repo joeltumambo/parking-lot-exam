@@ -1,18 +1,9 @@
-import { flow } from "lodash";
 import { useState } from "react";
 import { Size } from "../types/ParkingSpot";
 import styles from "../styles/ParkForm.module.css";
+import isoDate from "../utils/isoDate";
 
-const isoDate: (date: Date) => string = flow(
-  (date) => ({
-    time: date.getTime(),
-    offset: date.getTimezoneOffset() * 60000,
-  }),
-  ({ time, offset }) => new Date(time - offset).toISOString(),
-  (isoDate) => isoDate.slice(0, 16)
-);
-
-interface ParkInputData {
+export interface ParkInputData {
   entry: number;
   size: Size;
   time: Date;
@@ -22,10 +13,10 @@ type ChangeHandler<T> = React.ChangeEventHandler<T>;
 
 interface ParkFormProps {
   entriesCount: number;
-  onPark(data: ParkInputData): void;
+  onSubmit(data: ParkInputData): void;
 }
 
-const ParkForm: React.FC<ParkFormProps> = ({ entriesCount, onPark }) => {
+const ParkForm: React.FC<ParkFormProps> = ({ entriesCount, onSubmit }) => {
   const [values, setValues] = useState<ParkInputData>({
     entry: 0,
     size: Size.S,
@@ -55,12 +46,11 @@ const ParkForm: React.FC<ParkFormProps> = ({ entriesCount, onPark }) => {
 
   const handleSubmit: React.FormEventHandler = (e) => {
     e.preventDefault();
-    onPark(values);
+    onSubmit(values);
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <span>Park Vehicle</span>
       <span className={styles["form-row"]}>
         <label>Entry</label>
         <select name="entry" value={values.entry} onChange={handleEntryChange}>
@@ -86,7 +76,7 @@ const ParkForm: React.FC<ParkFormProps> = ({ entriesCount, onPark }) => {
           onChange={handleTimeChange}
         />
       </span>
-      <input type="submit" />
+      <button type="submit">Park</button>
     </form>
   );
 };

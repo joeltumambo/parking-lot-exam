@@ -2,11 +2,12 @@ import { Size } from "./ParkingSpot";
 
 interface ParkingRecord {
   id: string;
-  timeIn: Date;
+  timeStart: Date;
   spotId: string;
+  spotSize: Size;
   entryIndex: number;
-  vehicleSize: Size;
-  timeOut?: Date;
+  timeEnd?: Date;
+  duration?: number;
   fee?: number;
 }
 
