@@ -22,9 +22,9 @@ const ratesBySize: SizeDictionary = {
 };
 
 // let H = hourly rate, D = duration, F = flat rate
-// fee = H(D - 3) + 3F
+// fee = H(D - 3) + F
 const calculateByHour = (size: Size, duration: number): number =>
-  ratesBySize[size] * (duration - 3) + 3 * RATE_FLAT;
+  ratesBySize[size] * (duration - 3) + RATE_FLAT;
 
 // let O = overnight rate, D = duration
 // fee = O(D/24) + calculateFee(remainder)
