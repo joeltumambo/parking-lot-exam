@@ -26,7 +26,7 @@ const ratesBySize: SizeDictionary = {
 const calculateByHour = (size: Size, duration: number): number =>
   ratesBySize[size] * (duration - 3) + 3 * RATE_FLAT;
 
-// let O = overnight rate, D = duration,
+// let O = overnight rate, D = duration
 // fee = O(D/24) + calculateFee(remainder)
 const calculateOvernight = (size: Size, duration: number): number =>
   flow(
@@ -37,12 +37,12 @@ const calculateOvernight = (size: Size, duration: number): number =>
   )();
 
 const calculateFee = (size: Size, duration: number): number =>
-  flow(() =>
-    duration > 3
+  duration > 0
+    ? duration > 3
       ? duration > 24
         ? calculateOvernight(size, duration)
         : calculateByHour(size, duration)
       : RATE_FLAT
-  )();
+    : 0;
 
 export default calculateFee;
